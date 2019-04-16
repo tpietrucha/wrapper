@@ -1,0 +1,41 @@
+
+
+
+
+        <div class="action-button" (click)='toggleDisabled()'>Toggle disabled state</div>
+
+        <div class="action-button" (click)='toggleReadonly()'>Toggle read-only mode</div>
+
+        <div class="action-button" (click)='toggleToolbar()'>Toggle toolbar showing</div>
+
+        <div class="action-button" (click)='toggleTheme()'>{{(config.theme == "snow") ? "Change to bubble theme" : "Change to snow theme"}}</div>
+
+        <div class="action-button" (click)='clearEditorContent()'>Clear the editor content</div>
+
+        <div style="height:20%;" >Component
+          <quill [config]="config" [value]="'Some <b>example</b> content'" [modules]="modules" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (editorCreate)="onEditorCreate($event)" (valueChange)="onValueChange($event)" (contentChange)="onContentChange($event)" (selectionChange)="onSelectionChange($event)">
+          </quill>
+        </div>
+        <div style="height:50px;"></div>
+
+
+
+        <div style="height:20%;">Directive
+          <div class="quill-editor" [quill]="config" [modules]="modules" [disabled]="disabled" (blur)="onEditorBlur($event)" (focus)="onEditorFocus($event)" (editorCreate)="onEditorCreate($event)" (contentChange)="onContentChange($event)" (selectionChange)="onSelectionChange($event)">
+            Some <b>example</b> content
+          </div>
+        </div>
+        <div style="height:100px;"></div>
+
+
+
+        <div style="height:20%;">Default
+           <quill></quill>
+        </div>
+        <div style="height:100px;"></div>
+
+
+        <div style="height:20%;">Modded
+          <quill [config]="configTest" [value]="'Some <b>other</b> content'" [modules]="modulesTest" ></quill>
+        </div>
+        <div style="height:50px;"></div>

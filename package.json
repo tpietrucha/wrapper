@@ -1,0 +1,80 @@
+{
+  "name": "ngx-quill-wrapper-example",
+  "description": "Example app for the ngx-quill-wrapper",
+  "private": true,
+  "license": "MIT",
+  "version": "7.0.0",
+  "tslint": {
+    "extends": "./tslint.json"
+  },
+  "stylelint": {
+    "extends": "./stylelint.json"
+  },
+  "scripts": {
+    "start": "ng serve",
+    "clean": "rm -rf dist",
+    "lint": "npm run lint:ts && npm run lint:css",
+    "build": "rm -rf dist/* && npm run build:aot",
+    "deploy": "rm -rf dist && deploy-to-git",
+    "lint:ts": "tslint \"src/**/*.ts\"",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "build:aot": "webpack --config config/webpack-build-aot.config.js",
+    "build:jit": "webpack --config config/webpack-build-jit.config.js",
+    "serve:sjs": "lite-server -c config/lite-server-bs-config.js",
+    "serve:wds": "webpack-dev-server --open --inline --config config/webpack-server-jit.config.js"
+  },
+  "config": {
+    "deployToGit": {
+      "repository": "git@github.com:zefoy/ngx-quill-wrapper.git",
+      "branch": "gh-pages",
+      "folder": "dist",
+      "script": "npm run build",
+      "commit": "Publishing $npm_package_version",
+      "user": {
+        "name": "ZEF Devel",
+        "email": "devel@zef.fi"
+      }
+    }
+  },
+  "dependencies": {
+    "@angular/cdk": "^7.2.0",
+    "@angular/common": "^7.2.0",
+    "@angular/compiler": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "@angular/flex-layout": "7.0.0-beta.23",
+    "@angular/forms": "^0.2.0",
+    "@angular/platform-browser": "^7.2.0",
+    "@angular/platform-browser-dynamic": "^7.2.0",
+    "core-js": "^2.6.0",
+    "ngx-quill": "^4.7.1",
+    "ngx-quill-wrapper": "^7.2.0",
+    "quill-mention": "^2.1.1",
+    "rxjs": "^6.3.0",
+    "zone.js": "^0.8.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.12.0",
+    "@angular/cli": "^7.2.0",
+    "@angular/compiler-cli": "^7.2.0",
+    "@ngtools/webpack": "^7.2.0",
+    "@types/node": "^10.12.0",
+    "@types/quill": "^1.0.0",
+    "codelyzer": "^4.5.0",
+    "connect-history-api-fallback": "^1.5.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "deploy-to-git": "^0.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "lite-server": "^2.4.0",
+    "plugin-typescript": "^8.0.0",
+    "raw-loader": "^1.0.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^2.0.0",
+    "systemjs": "^0.21.0",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.0",
+    "webpack": "^4.28.0",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.0"
+  }
+}
